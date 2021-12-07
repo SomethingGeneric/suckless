@@ -50,6 +50,19 @@ install_scroll() {
     popd
 }
 
+build_slstatus() {
+    pushd slstatus
+    make all
+    popd
+}
+
+install_slstatus() {
+    pushd slstatus
+    sudo make install clean
+    popd
+}
+
+
 fix_perms() {
     sudo chown -R $USER:$USER *
 }
@@ -59,12 +72,14 @@ if [[ "$1" == "install" ]]; then
     install_st
     install_scroll
     install_dwm
+    install_slstatus
     fix_perms
 elif [[ "$1" == "build" ]]; then
     build_dmenu
     build_st
     build_scroll
     build_dwm
+    build_slstatus
     fix_perms
 else
     echo "Usage: $0 [install|build]"
