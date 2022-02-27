@@ -38,18 +38,6 @@ install_dwm() {
     popd
 }
 
-build_scroll() {
-    pushd scroll
-    make all
-    popd
-}
-
-install_scroll() {
-    pushd scroll
-    sudo make install clean
-    popd
-}
-
 build_slstatus() {
     pushd slstatus
     make all
@@ -70,14 +58,12 @@ fix_perms() {
 if [[ "$1" == "install" ]]; then
     install_dmenu
     install_st
-    install_scroll
     install_dwm
     install_slstatus
     fix_perms
 elif [[ "$1" == "build" ]]; then
     build_dmenu
     build_st
-    build_scroll
     build_dwm
     build_slstatus
     fix_perms
