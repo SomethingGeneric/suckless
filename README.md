@@ -12,3 +12,4 @@ dwm & stuff repo
 - feh (technically not required, but used in my `.xinitrc`)
 - flameshot (or if not, edit `dwm/config.h`)
 - alacritty (or if not, edit `dwm/config.h`)
+- rofi (or if not, edit `dwm/config.h`)
