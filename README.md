@@ -6,10 +6,11 @@ dwm & stuff repo
 - dwm: 6.3
 - st: 0.8.5
 - dmenu: 5.1
-- slstatus: https://git.suckless.org/slstatus/commit/84a2f117a32f0796045941260cdc4b69852b41e0.html
+- slstatus: latest git from my personal fork (https://git.tar.black/matt/slstatus)
 
 ## Depends
-- feh (technically not required, but used in my `.xinitrc`)
-- flameshot (or if not, edit `dwm/config.h`)
-- alacritty (or if not, edit `dwm/config.h`)
-- rofi (or if not, edit `dwm/config.h`)
+- `git` (to clone and build slstatus)
+- `feh` (technically not required, but used in my `.xinitrc`)
+- `flameshot` (or if not, edit `dwm/config.h`)
+- `alacritty` (or if not, edit `dwm/config.h`)
+- `rofi` (or if not, edit `dwm/config.h`)
