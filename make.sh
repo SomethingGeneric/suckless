@@ -33,6 +33,12 @@ install_xinitrc() {
     cp xinitrc ~/.xinitrc
 }
 
+install_screenlayout() {
+    if [[ ! -d ~/.local/bin ]]; then
+        mkdir -p ~/.local/bin
+    fi
+    cp displays.sh ~/.local/bin/.
+}
 
 fix_perms() {
     sudo chown -R $USER:$USER *
@@ -52,8 +58,12 @@ ensure_packages() {
         echo "No idea what distro you're on. Open an issue."
         exit 1
     fi
-    sudo ${mgr} git feh flameshot alacritty rofi
+    sudo ${mgr} git feh flameshot alacritty rofi arandr
     touch ~/.suckless_pkgs
+}
+
+setup_wallpaper() {
+    cp wallpaper.jpg ~/.wallpaper.jpg
 }
 
 if [[ ! -f ~/.suckless_pkgs ]]; then
@@ -63,4 +73,6 @@ fi
 install_dwm
 install_slstatus
 install_xinitrc
+install_screenlayout
+setup_wallpaper
 fix_perms

@@ -7,8 +7,8 @@ dwm setup
 - slstatus: latest git from my personal fork (https://git.tar.black/matt/slstatus)
 
 ## Depends
-- `git` (to clone and build slstatus)
-- `feh` (technically not required, but used in my `.xinitrc`)
-- `flameshot` (or if not, edit `dwm/config.h`)
-- `alacritty` (or if not, edit `dwm/config.h`)
-- `rofi` (or if not, edit `dwm/config.h`)
+Various programs are installed using the system's package manager. The script currently only auto-detects `pacman` and `apt`
+
+## Things to change:
+* `xinitrc`, since by default it gets copied to `~/`
+* `displays.sh`, which you could modify graphically with `arandr`. Or, if you've only got one display, just comment out the `screenlayout` function in `make.sh`
