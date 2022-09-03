@@ -1,11 +1,9 @@
 # Suckless
 
-dwm & stuff repo
+dwm setup
 
 ## Versions:
 - dwm: 6.3
-- st: 0.8.5
-- dmenu: 5.1
 - slstatus: latest git from my personal fork (https://git.tar.black/matt/slstatus)
 
 ## Depends
