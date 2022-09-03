@@ -39,12 +39,17 @@ fix_perms() {
 }
 
 ensure_packages() {
+    if [[ "$(which sudo)" == "" ]]; then
+        echo "Install sudo, please."
+        exit 1
+    fi
+
     if [[ -d /etc/pacman.d ]]; then
         mgr="pacman -S --needed --noconfirm"
     elif [[ -d /etc/apt ]]; then
         mgr="apt install -y"
     else
-        echo "No idea what distro you're on."
+        echo "No idea what distro you're on. Open an issue."
         exit 1
     fi
     sudo ${mgr} git feh flameshot alacritty rofi
