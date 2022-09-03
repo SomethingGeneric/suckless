@@ -53,9 +53,10 @@ ensure_packages() {
         exit 1
     fi
     sudo ${mgr} git feh flameshot alacritty rofi
+    touch ~/.suckless_pkgs
 }
 
-if [[ ! -f .suckless_pkgs ]]; then
+if [[ ! -f ~/.suckless_pkgs ]]; then
     ensure_packages
 fi
 
