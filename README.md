@@ -4,7 +4,7 @@ dwm setup
 
 ## Versions:
 - dwm: 6.3
-- slstatus: latest git from my personal fork (https://git.tar.black/matt/slstatus)
+- slstatus: latest git
 
 ## Depends
 Various programs are installed using the system's package manager. The script currently only auto-detects `pacman` and `apt`
