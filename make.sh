@@ -21,7 +21,11 @@ install_dwm() {
 }
 
 install_slstatus() {
-    git clone https://github.com/drkhsh/slstatus
+	if [[ -d slstatus ]]; then
+		pushd slstatus && git pull && popd
+	else
+    	git clone https://github.com/drkhsh/slstatus
+	fi
     cp slstatus.config.h slstatus/config.h
     pushd slstatus
     sudo make install clean
@@ -58,7 +62,7 @@ ensure_packages() {
         echo "No idea what distro you're on. Open an issue."
         exit 1
     fi
-    sudo ${mgr} git feh flameshot alacritty rofi arandr
+    sudo ${mgr} git feh flameshot alacritty rofi arandr xorg xorg-xinit
     touch ~/.suckless_pkgs
 }
 

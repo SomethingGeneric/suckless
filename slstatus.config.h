@@ -67,10 +67,10 @@ static const struct arg args[] = {
 	/* function format          argument */
 //	{ battery_perc, "BAT %s percent", "CMB0"},
 	{ cpu_perc, "CPU %s percent", NULL},
-	{ separator, " | ", NULL},
+	//{ separator, " | ", NULL},
 	{ ram_perc, "RAM %s percent", NULL},
-	{ separator, " | ", NULL},
+	//{ separator, " | ", NULL},
 	{ uptime, "up for %s", NULL},
-	{ separator, " | ", NULL},
+	//{ separator, " | ", NULL},
 	{ datetime, "%s", "%F %T" },
 };
