@@ -37,18 +37,18 @@ install_rofi_configs() {
 }
 
 install_xinitrc() {
-    cp xinitrc ~/.xinitrc
+    cp xinitrc /home/$me/.xinitrc
 }
 
 install_screenlayout() {
-    if [[ ! -d ~/.local/bin ]]; then
-        mkdir -p ~/.local/bin
+    if [[ ! -d /home/$me/.local/bin ]]; then
+        mkdir -p /home/$me/.local/bin
     fi
-    cp displays.sh ~/.local/bin/.
+    cp displays.sh /home/$me/.local/bin/.
 }
 
 fix_perms() {
-    sudo chown -R $USER:$USER *
+    sudo chown -R $me:$me *
 }
 
 ensure_packages() {
@@ -66,16 +66,16 @@ ensure_packages() {
         exit 1
     fi
     sudo ${mgr} git feh flameshot alacritty rofi arandr xorg xorg-xinit
-    touch ~/.suckless_pkgs
+    touch /home/$me/.suckless_pkgs
 }
 
 setup_wallpaper() {
-    cp wallpaper.jpg ~/.wallpaper.jpg
+    cp wallpaper.jpg /home/$me/.wallpaper.jpg
 }
 
 ############################################################
 
-if [[ ! -f ~/.suckless_pkgs ]]; then
+if [[ ! -f /home/$me/.suckless_pkgs ]]; then
     ensure_packages
 fi
 

@@ -27,8 +27,9 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
-	{ "fuck",     NULL,       NULL,       0,            1,           -1 },
-	{ "this",     NULL,       NULL,       1 << 8,       0,           -1 },
+	{ "discord",  NULL,       NULL,       1 << 8,       0,           -1 },
+	{ "Slack",    NULL,       NULL,       1 << 7,       0,           -1 },
+//	{ "this",     NULL,       NULL,       1 << 8,       0,           -1 },
 };
 
 /* layout(s) */
