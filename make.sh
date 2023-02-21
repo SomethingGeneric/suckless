@@ -24,7 +24,7 @@ install_slstatus() {
 	if [[ -d slstatus ]]; then
 		pushd slstatus && git pull && popd
 	else
-    	git clone https://github.com/drkhsh/slstatus
+    	git clone https://github.com/SomethingGeneric/slstatus
 	fi
     cp slstatus.config.h slstatus/config.h
     pushd slstatus
