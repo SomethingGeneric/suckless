@@ -1,18 +1,8 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 set -e
 
-install_dmenu() {
-    pushd dmenu
-    sudo make install clean
-    popd
-}
-
-install_st() {
-    pushd st
-    sudo make install clean
-    popd
-}
+me="matt"
 
 install_dwm() {
     pushd dwm
@@ -31,6 +21,19 @@ install_slstatus() {
     sudo make install clean
     popd
     rm -rf slstatus
+}
+
+install_rofi_configs() {
+	if [[ ! -d rofi ]]; then
+		git clone --depth=1 https://github.com/adi1090x/rofi.git
+	else
+		pushd rofi && git pull && popd
+	fi
+	pushd rofi
+	chmod +x setup.sh
+	su $me -c "./setup.sh"
+	sed -i "s/'style-1'/'style-4'/g" /home/$me/.config/rofi/launchers/type-6/launcher.sh
+	popd
 }
 
 install_xinitrc() {
@@ -70,12 +73,15 @@ setup_wallpaper() {
     cp wallpaper.jpg ~/.wallpaper.jpg
 }
 
+############################################################
+
 if [[ ! -f ~/.suckless_pkgs ]]; then
     ensure_packages
 fi
 
 install_dwm
 install_slstatus
+install_rofi_configs
 install_xinitrc
 install_screenlayout
 setup_wallpaper
