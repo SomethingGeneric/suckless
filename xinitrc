@@ -1,7 +1,7 @@
 slstatus &
 
 discord &
-slack &
+# slack &
 
 feh --bg-scale .wallpaper.jpg &
 
