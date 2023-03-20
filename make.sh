@@ -24,16 +24,13 @@ install_slstatus() {
 }
 
 install_rofi_configs() {
-	if [[ ! -d rofi ]]; then
-		git clone --depth=1 https://github.com/adi1090x/rofi.git
-	else
-		pushd rofi && git pull && popd
-	fi
+    git clone --depth=1 https://github.com/adi1090x/rofi.git
 	pushd rofi
 	chmod +x setup.sh
 	su $me -c "./setup.sh"
 	sed -i "s/'style-1'/'style-4'/g" /home/$me/.config/rofi/launchers/type-6/launcher.sh
 	popd
+    rm -rf rofi
 }
 
 install_maim() {
@@ -62,6 +59,10 @@ install_screenlayout() {
         mkdir -p /home/$me/.local/bin
     fi
     cp displays.sh /home/$me/.local/bin/.
+
+    if [[ "$1" == "multi" ]]; then
+        touch /home/$me/.multi
+    fi
 }
 
 fix_perms() {
