@@ -3,7 +3,7 @@
 dwm setup
 
 ## Versions:
-- dwm: 6.3
+- dwm: 6.4
 - slstatus: latest git from a personal fork
 
 ## Depends

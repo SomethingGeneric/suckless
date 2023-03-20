@@ -36,6 +36,23 @@ install_rofi_configs() {
 	popd
 }
 
+install_maim() {
+    git clone https://github.com/naelstrof/slop.git
+    cd slop
+    cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX="/usr" ./
+    make && sudo make install
+    cd ..
+    git clone https://github.com/naelstrof/maim.git
+    cd maim
+    cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX="/usr" ./
+    make && sudo make install
+    cd ..
+    rm -rf {slop,maim}
+
+    [[ ! -d /home/$me/.local/bin ]] && mkdir /home/$me/.local/bin
+    cp screenshot.sh /home/$me/.local/bin/.
+}
+
 install_xinitrc() {
     cp xinitrc /home/$me/.xinitrc
 }
@@ -61,11 +78,16 @@ ensure_packages() {
         mgr="pacman -S --needed --noconfirm"
     elif [[ -d /etc/apt ]]; then
         mgr="apt install -y"
+	elif [[ -d /etc/slackpkg ]]; then
+		echo "W/ slackware, you should have everything except the following, which you can get from sbopkg (SlackBuilds.org)"
+        echo "feh, alacritty, rofi, glm, xclip"
+		mgr="skip"
     else
         echo "No idea what distro you're on. Open an issue."
         exit 1
     fi
-    sudo ${mgr} git feh flameshot alacritty rofi arandr xorg xorg-xinit
+
+    [[ ! "$mgr" == "skip" ]] && sudo ${mgr} git feh alacritty rofi arandr xorg xorg-xinit glm xclip
     touch /home/$me/.suckless_pkgs
 }
 
@@ -83,6 +105,7 @@ install_dwm
 install_slstatus
 install_rofi_configs
 install_xinitrc
+install_maim
 install_screenlayout
 setup_wallpaper
 fix_perms
