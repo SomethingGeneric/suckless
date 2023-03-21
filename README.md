@@ -5,11 +5,13 @@ dwm setup
 ## Versions:
 - dwm: 6.4
 - slstatus: latest git from a personal fork
+- maim: latest from git repo
+- slopy: latest from git repo
+- Others: latest from system package manager
 
 ## Depends
-Various programs are installed using the system's package manager. The script currently only auto-detects `pacman` and `apt`
+Various programs are installed using the system's package manager. The script currently only auto-detects `pacman`, `apt`, and `slackpkg`
 
 ## Things to change:
-* `me=` in `make.sh`
+* Look over `make.sh`
 * `xinitrc`, since by default it gets copied to `~/`
-* `displays.sh`, which you could modify graphically with `arandr`. Or, if you've only got one display, just comment out the `screenlayout` function in `make.sh`
