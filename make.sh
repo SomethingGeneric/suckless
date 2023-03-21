@@ -96,17 +96,24 @@ setup_wallpaper() {
     cp wallpaper.jpg /home/$me/.wallpaper.jpg
 }
 
+install_backlight() {
+    [[ ! -d /home/$me/.local/bin ]] && mkdir /home/$me/.local/bin
+	cp backlight.py /home/$me/.local/bin/.
+	echo "make sure that you have passwordless sudo for /home/$me/.local/bin/backlight.py"	
+}
+
 ############################################################
 
 if [[ ! -f /home/$me/.suckless_pkgs ]]; then
     ensure_packages
 fi
 
-install_dwm
+#install_dwm
 install_slstatus
-install_rofi_configs
-install_xinitrc
-install_maim
-install_screenlayout
-setup_wallpaper
+#install_rofi_configs
+#install_xinitrc
+#install_maim
+install_backlight
+#install_screenlayout
+#setup_wallpaper
 fix_perms

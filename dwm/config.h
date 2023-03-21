@@ -67,11 +67,17 @@ static const char *termcmd[]  = { "alacritty", NULL };
 
 static const char *maimcmd[] = { "./.local/bin/screenshot.sh", NULL };
 
+static const char *backlight_up[] = { "./.local/bin/backlight.py mod 5000", NULL};
+static const char *backlight_down[] = { "./.local/bin/backlight.py mod -5000", NULL};
+
+
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY|ShiftMask,             XK_d,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY|ShiftMask,				XK_p,	   spawn,	       {.v = maimcmd } },
+	{ MODKEY|ShiftMask,				XK_i,	   spawn,	       {.v = backlight_up } },
+	{ MODKEY|ShiftMask,				XK_k,	   spawn,	       {.v = backlight_down } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
