@@ -15,3 +15,4 @@ Various programs are installed using the system's package manager. The script cu
 ## Things to change:
 * Look over `make.sh`
 * `xinitrc`, since by default it gets copied to `~/`
+* Run `ls /sys/class/backlight` (on laptops), and edit `backlight.py` if the directory isn't `intel_backlight`.
