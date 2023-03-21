@@ -67,8 +67,8 @@ static const char *termcmd[]  = { "alacritty", NULL };
 
 static const char *maimcmd[] = { "./.local/bin/screenshot.sh", NULL };
 
-static const char *backlight_up[] = { "./.local/bin/backlight.py mod 5000", NULL};
-static const char *backlight_down[] = { "./.local/bin/backlight.py mod -5000", NULL};
+static const char *backlight_up[] = { "./.local/bin/blup.sh", NULL};
+static const char *backlight_down[] = { "./.local/bin/bldn.sh", NULL};
 
 
 static Key keys[] = {
