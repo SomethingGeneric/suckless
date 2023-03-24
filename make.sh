@@ -4,6 +4,9 @@ set -e
 
 me="matt"
 
+multi="no"
+[[ -f /home/$me/.multi ]] && multi="yes"
+
 install_dwm() {
     pushd dwm
     sudo make install clean
@@ -58,11 +61,7 @@ install_screenlayout() {
     if [[ ! -d /home/$me/.local/bin ]]; then
         mkdir -p /home/$me/.local/bin
     fi
-    cp displays.sh /home/$me/.local/bin/.
-
-    if [[ "$1" == "multi" ]]; then
-        touch /home/$me/.multi
-    fi
+    [[ "$multi" == "yes" ]] && cp displays.sh /home/$me/.local/bin/.
 }
 
 fix_perms() {
