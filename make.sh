@@ -80,18 +80,19 @@ ensure_packages() {
     elif [[ -d /etc/apt ]]; then
         mgr="apt install -y"
     elif [[ -d /etc/slackpkg ]]; then
-	echo "W/ slackware, you should have everything except the following, which you can get from sbopkg (SlackBuilds.org)"
-        echo "feh, alacritty, rofi, glm, xclip"
-	mgr="skip"
+	    echo "W/ slackware, you should have everything except the following, which you can get from sbopkg (SlackBuilds.org)"
+        echo "feh, wezterm, rofi, glm, xclip"
+	    mgr="skip"
     elif  [[ -d /etc/portage ]]; then
-	mgr="skip"
-	sudo emerge x11-misc/xclip feh alacritty rofi arandr xorg-server xinit glm dev-vcs/git
+        mgr="skip"
+        sudo emerge x11-misc/xclip feh rofi arandr xorg-server xinit glm dev-vcs/git
+        echo "on gentoo you have to unmask wezterm by the way"
     else
         echo "No idea what distro you're on. Open an issue."
         exit 1
     fi
 
-    [[ ! "$mgr" == "skip" ]] && sudo ${mgr} feh alacritty rofi arandr xorg xorg-xinit glm xclip git
+    [[ ! "$mgr" == "skip" ]] && sudo ${mgr} feh wezterm ofi arandr xorg xorg-xinit glm xclip git
     touch /home/$me/.suckless_pkgs
 }
 
@@ -121,5 +122,7 @@ install_backlight
 install_screenlayout
 setup_wallpaper
 fix_perms
+
+# for building stuff
 #libXinerama
 #glew

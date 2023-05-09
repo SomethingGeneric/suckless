@@ -63,7 +63,7 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 
 static const char *dmenucmd[] = { "./.config/rofi/launchers/type-6/launcher.sh", NULL };
 
-static const char *termcmd[]  = { "alacritty", NULL };
+static const char *termcmd[]  = { "wezterm", NULL };
 
 static const char *maimcmd[] = { "./.local/bin/screenshot.sh", NULL };
 
