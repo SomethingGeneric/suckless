@@ -37,6 +37,7 @@ install_rofi_configs() {
 }
 
 install_maim() {
+    [[ -d slop ]] && rm -rf slop
     git clone https://github.com/naelstrof/slop.git
     cd slop
     cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX="/usr" ./
@@ -78,16 +79,19 @@ ensure_packages() {
         mgr="pacman -S --needed --noconfirm"
     elif [[ -d /etc/apt ]]; then
         mgr="apt install -y"
-	elif [[ -d /etc/slackpkg ]]; then
-		echo "W/ slackware, you should have everything except the following, which you can get from sbopkg (SlackBuilds.org)"
+    elif [[ -d /etc/slackpkg ]]; then
+	echo "W/ slackware, you should have everything except the following, which you can get from sbopkg (SlackBuilds.org)"
         echo "feh, alacritty, rofi, glm, xclip"
-		mgr="skip"
+	mgr="skip"
+    elif  [[ -d /etc/portage ]]; then
+	mgr="skip"
+	sudo emerge x11-misc/xclip feh alacritty rofi arandr xorg-server xinit glm dev-vcs/git
     else
         echo "No idea what distro you're on. Open an issue."
         exit 1
     fi
 
-    [[ ! "$mgr" == "skip" ]] && sudo ${mgr} git feh alacritty rofi arandr xorg xorg-xinit glm xclip
+    [[ ! "$mgr" == "skip" ]] && sudo ${mgr} feh alacritty rofi arandr xorg xorg-xinit glm xclip git
     touch /home/$me/.suckless_pkgs
 }
 
@@ -117,3 +121,5 @@ install_backlight
 install_screenlayout
 setup_wallpaper
 fix_perms
+#libXinerama
+#glew
