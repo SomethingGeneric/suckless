@@ -10,7 +10,7 @@ dwm setup
 - Others: latest from system package manager
 
 ## Depends
-Various programs are installed using the system's package manager. The script currently only auto-detects `pacman`, `apt`, and `slackpkg`
+Various programs are installed using the system's package manager. The script currently only auto-detects `pacman`, `apt`, `emerge`, and `slackpkg`
 
 ## Things to change:
 * Look over `make.sh`
